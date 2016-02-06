@@ -26,6 +26,7 @@ def lookup(token):
     if token in line:
       s = line,split() 
   '''
+  
   cmu.close()
   return token
     

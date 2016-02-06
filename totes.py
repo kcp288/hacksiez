@@ -4,45 +4,70 @@ vowels = {'AA0': 0, 'AA2': 1, 'AE0': 2, 'AE2': 3, 'AH0': 4, 'AH2': 5, 'AO0': 6, 
 
 consonants = {'B': 0, 'CH': 1, 'D': 2, 'DH': 3, 'F': 4, 'G': 5, 'HH': 6, 'JH': 7, 'K': 8, 'L': 9, 'M': 10, 'N': 11, 'NG': 12, 'P': 13, 'R': 14, 'S': 15, 'SH': 16, 'T': 17, 'TH': 18, 'V': 19, 'W': 20, 'Y': 21, 'Z': 22, 'ZH': 23}
 
+v_cons = {'D': 2, 'DH': 3, 'G': 5, 'JH': 7, 'M': 10, 'N': 11, 'NG': 12, 'R': 14, 'V': 19, 'W': 20, 'Y': 21, 'Z': 22, 'ZH': 23}
+
+nv_cons = {'B': 0, 'F': 4, 'G': 5, 'K': 8, 'P': 13, 'S': 15, 'SH': 16, 'T': 17, 'TH': 18, 'Y': 21}
+
 def abbrev(inp):
+  inp = inp.upper()
   inp = inp.split(' ')
-  output = ''
+  output = []
 
 
   for word in inp:
  	abbrev = lookup(word)
- 	output = output + word + ' '
 
-  output = output.strip()
-  output = output + '.'
-  print output
+ 	print abbrev
 
+  #print output
 
 def lookup(token):
   cmu = open('cmudict.txt', 'r')
 
   abbrev = ''
+  coda = ''
   
   for line in cmu:
   	if token in line:
   	  line = line.split()
   	  if token == line[0]:
-  	  	print line
+  	  	stressed = False
   	  	for phone in line:
+  	  		
   	  		if '1' in phone:
-
+  	  			stressed = True
   	  			ndx = line.index(phone)
-  	  			abbrev = line[0:ndx+1]
+  	  			abbrev = line[1:ndx+1]
 
   	  			newline = line[ndx+1:]
-  	  			print newline
 
+  	  			# No need to pad the coda
+  	  			if len(newline) < 1:
+				  cmu.close()
+  				  return abbrev
+
+  	  			# Else if it is truncated
   	  			for sound in newline:
-  	  				
+  	  				if sound in vowels:
+  	  					break
+  	  				if sound in consonants:
+  	  					ndx = newline.index(sound)
 
-  	  			print abbrev
+  	  			coda = newline[0:ndx+1]
+  	  			abbrev = abbrev + coda
+  	  			abbrev = generatecoda(abbrev)
+
+  	  	if stressed == False:
+  	  	  abbrev = line
+
+
+  if len(abbrev)==0:
+	print token + " not found"
+	return
+  
+  
   cmu.close()
-  return token
+  return abbrev
 
 '''
   	  if token == line[0]:
@@ -60,7 +85,21 @@ def lookup(token):
 '''
 
 
-    
+def generatecoda(abbrev):
+	if len(abbrev) == 0:
+		print "not found"
+		return 
+
+	end = abbrev[len(abbrev)-1]
+	coda = []
+
+	if end in v_cons:
+		coda = ['Z']
+	if end in nv_cons:
+		coda = ['S']
+
+	return abbrev + coda
+  
    
 def main():
 	# Initialize

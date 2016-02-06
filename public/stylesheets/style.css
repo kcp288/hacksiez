@@ -1,8 +1,58 @@
+@import url(https://fonts.googleapis.com/css?family=Oxygen:400,300,700);
+
 body {
+  text-align: center;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 12px "Oxygen", Helvetica, Arial, sans-serif;
+  font-weight: 'Light'
 }
 
-a {
-  color: #00B7FF;
+textarea {
+	width: 50%;
+	height: 200px;
+	resize: none;
+	font: 16px;
+}
+button, a, h3 {
+  color: #6B1E4B;
+  background-color: transparent;
+  border: transparent;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 13px;
+  margin: 10px;
+}
+
+/* Underline From Left */
+.hvr-underline-from-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #6B1E4B;
+  height: 4px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
+  right: 0;
 }

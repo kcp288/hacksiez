@@ -21,14 +21,45 @@ def abbrev(inp):
 def lookup(token):
   cmu = open('cmudict.txt', 'r')
 
-  '''
-  for line in cmu:
-    if token in line:
-      s = line,split() 
-  '''
+  abbrev = ''
   
+  for line in cmu:
+  	if token in line:
+  	  line = line.split()
+  	  if token == line[0]:
+  	  	print line
+  	  	for phone in line:
+  	  		if '1' in phone:
+
+  	  			ndx = line.index(phone)
+  	  			abbrev = line[0:ndx+1]
+
+  	  			newline = line[ndx+1:]
+  	  			print newline
+
+  	  			for sound in newline:
+  	  				
+
+  	  			print abbrev
   cmu.close()
   return token
+
+'''
+  	  if token == line[0]:
+  	  	print line
+  	  	for phone in line:
+  	  		if '1' in phone:
+  	  			print phone
+  	  	return token
+  	  	
+  	  for phone in line: 
+	    if '1' in phone:
+	      print line
+	      print phone
+
+'''
+
+
     
    
 def main():

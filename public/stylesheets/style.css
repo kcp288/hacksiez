@@ -1,23 +1,28 @@
 @import url(https://fonts.googleapis.com/css?family=Oxygen:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Satisfy|Courgette);
 
+html{
+	background-color: blue;
+}
 body {
   text-align: center;
   padding: 50px;
   font: 12px "Oxygen", Helvetica, Arial, sans-serif;
   font-weight: 'Light'
+
 }
 
 textarea {
-	width: 50%;
-	height: 200px;
+	width: 35%;
+	height: 100px;
 	resize: none;
-	font: 16px;
+	font-size: 18px;
 }
 button, a, h3 {
-  color: #6B1E4B;
+  color: #1da1f2;
   background-color: transparent;
   border: transparent;
-  font-size: 20px;
+  font-size: 26px;
   text-decoration: none;
   border-radius: 3px;
   padding: 13px;
@@ -37,6 +42,16 @@ button, a, h3 {
   position: relative;
   overflow: hidden;
 }
+#output{
+	padding: 30px;
+	text-align: center;
+	margin: auto;
+	width: 35%;
+	font-size: 26px;
+	font-family: 'Courgette', cursive;
+	line-height: 26px;
+
+}
 .hvr-underline-from-left:before {
   content: "";
   position: absolute;
@@ -44,7 +59,7 @@ button, a, h3 {
   left: 0;
   right: 100%;
   bottom: 0;
-  background: #6B1E4B;
+  background: red;
   height: 4px;
   -webkit-transition-property: right;
   transition-property: right;

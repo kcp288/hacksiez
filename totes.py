@@ -16,16 +16,34 @@ def abbrev(inp):
   inp = inp.upper()
   inp = inp.split(' ')
 
-  output = []
+  output = ''
 
   # For each word, call lookup
   for word in inp:
- 	abbrev = lookup(word)
+  	stop = checkifstopword(word.lower())
 
- 	print word
- 	print abbrev
+  	if stop:
+		output = output + ' ' + word
+  	else:
+	  abbrev = lookup(word)
 
-  #print output
+	  if type(abbrev) is not str:
+	  	print abbrev, " did not work out"
+	  	return
+	  output = output + ' ' + abbrev
+  
+  print "output is; ", output
+
+
+
+def checkifstopword(word):
+	isstopword = False
+
+	if word in open('stopwords.txt').read():
+	    isstopword = True
+
+	return isstopword
+
 
 def lookup(token):
   cmu = open('cmudict.txt', 'r')
@@ -52,9 +70,9 @@ def lookup(token):
 
 def spelling(token, ctr, r):
 
+	ndx = 0
 	vowelcount = 0
 	word = list(token)
-	print word
 	for letter in word:
 		if letter in written_consonants:
 			continue
@@ -118,13 +136,12 @@ def findstressed(line, token):
 	firstpart = spelling(token, stressedlocation, rhotic)
 
 	firstpart = ''.join([str(x) for x in firstpart])
-	print "New Spelling: ", firstpart+newspelling
 
 
 	if ndx == 0:
 		abbrev = line
 
-	return abbrev
+	return firstpart+newspelling
 
 def generatecoda(abbrev):
 	if len(abbrev) == 0:

@@ -1,20 +1,20 @@
 # hacksiez
 Created at Stupid Hackathon 2016
-Deployed at [https://dumb-it-down.herokuapp.com/]{https://dumb-it-down.herokuapp.com/}
+Live at https://dumb-it-down.herokuapp.com/
 
 ### About
-Node.js, [python-shell]{https://github.com/extrabacon/python-shell} module for backend
-[cmudict]{http://www.speech.cs.cmu.edu/cgi-bin/cmudict}  for pronunciation
-[Hover.css]{http://ianlunn.github.io/Hover/} button effect
-Thanks to Lauren Spradlin and Taylor Jones for their work on phonological and  morphological construction of "totes"  abbreviations. Read more about abbreviation research [here]{http://opencuny.org/laurenspradlin/files/2016/01/Totes-LSA-Spradlin-Jones-2016-pdf.pdf}
+Node.js, [python-shell](https://github.com/extrabacon/python-shell) module for backend
+[cmudict](http://www.speech.cs.cmu.edu/cgi-bin/cmudict)  for pronunciation
+[Hover.css](http://ianlunn.github.io/Hover/) button effect
+Thanks to Lauren Spradlin and Taylor Jones for their work on phonological and  morphological construction of "totes"  abbreviations. Read more about abbreviation research [here](http://opencuny.org/laurenspradlin/files/2016/01/Totes-LSA-Spradlin-Jones-2016-pdf.pdf).
 
 ### Basic rules for 'Totes' constructions
 A 'totes' is a term for abbreviations (abbrevs?) that have proliferated from twitter into speech. Originally triggered by the abbreviation of 'totally,' 'totes' constructions can now be constructed without any preceding contraction. What was once 'totes adorbs' can now just be 'adorbs.' Intriguing!
 How to built a 'totes' *using 'obviously'*
-1. Locate primary stress in the word *- OB.vi.uhs.li*
-2. Maximize coda of stressed syllable *- OBV.iushli*
-3. Delete everything after the coda *- OBV*
-4. Optional suffix *- OBVS or perhaps OBVSIEZ
+ 1. Locate primary stress in the word *- OB.vi.uhs.li*
+ 2. Maximize coda of stressed syllable *- OBV.iushli*
+ 3. Delete everything after the coda *- OBV*
+ 4. Optional suffix *- OBVS or perhaps OBVSIEZ
 
 ### Algorithm
 In **totes.py**
